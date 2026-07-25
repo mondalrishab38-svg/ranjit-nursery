@@ -1,6 +1,17 @@
 
 <!DOCTYPE html>
 <table>
+<script>
+function searchRose() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let roses = document.getElementsByClassName("rose");
+
+  for (let i = 0; i < roses.length; i++) {
+    let name = roses[i].innerText.toLowerCase();
+    roses[i].style.display = name.includes(input) ? "" : "none";
+  }
+}
+</script>
 
   </tr>
 </table>  <!DOCTYPE html>
