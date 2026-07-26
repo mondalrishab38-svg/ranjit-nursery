@@ -121,10 +121,34 @@ function searchRose() {
 </script>
 
 <body>
+<script>
+function sortRoses(){
+    let container=document.body;
+    let roses=Array.from(document.getElementsByClassName("rose"));
+
+    roses.sort(function(a,b){
+        let x=a.querySelector("h2").innerText.toLowerCase();
+        let y=b.querySelector("h2").innerText.toLowerCase();
+
+        if(document.getElementById("sort").value=="az"){
+            return x.localeCompare(y);
+        }else{
+            return y.localeCompare(x);
+        }
+    });
+
+    roses.forEach(r=>container.appendChild(r));
+}
+</script>
 
 <h1>🌹 RANJIT NURSERY</h1>
 
 <h4> ph no. 9836160317</h4>
+
+<select id="sort" onchange="sortRoses()">
+<option value="az">Name A-Z</option>
+<option value="za">Name Z-A</option>
+</select>
 
 <h2>Rose List</h2>
 
