@@ -93,11 +93,26 @@ function searchRose() {
 }
 </script>
 <input type="text" id="search" placeholder="Search rose..." onkeyup="searchRose()">
+<button onclick="darkMode()">🌙 Dark Mode</button>.dark{
+    background:#222;
+    color:white;
+}
 <!DOCTYPE html>
+
 
 <td>
   <tr> </tr>
 <style>
+.dark{
+    background:#222;
+    color:white;
+}
+
+.dark .rose{
+    background:#333;
+    color:white;
+    border-color:#555;
+}
 </style>
 <table> <table>  </table>
 
@@ -121,6 +136,11 @@ function searchRose() {
 </script>
 
 <body>
+<script>
+function darkMode(){
+    document.body.classList.toggle("dark");
+}
+</script>
 <script>
 function sortRoses(){
     let container=document.body;
