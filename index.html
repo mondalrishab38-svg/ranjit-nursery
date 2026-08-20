@@ -54,6 +54,47 @@ input{
 
 <style>
 
+  .home{
+    text-align:center;
+    padding:25px 10px;
+}
+
+.home p{
+    font-size:18px;
+}
+
+.categories{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    max-width:500px;
+    margin:25px auto;
+}
+
+.categories button{
+    padding:16px;
+    border:none;
+    border-radius:15px;
+    background:#7a3e2d;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.categories button:active{
+    transform:scale(0.96);
+}
+
+.category{
+    display:none;
+}
+
+.category.active{
+    display:block;
+}
+
 
 
 
@@ -217,12 +258,7 @@ function sortRoses(){
     <h1>🌹 RANJIT NURSERY</h1>
     <p>Find your perfect rose 🌹</p>
 
-    <input
-        type="text"
-        id="search"
-        placeholder="🔍 Search rose..."
-        onkeyup="searchRose()"
-    >
+  
 
     <div class="categories">
 
@@ -266,12 +302,6 @@ function showCategory(category){
 }
 
 
-function searchRose(){
-
-    let input = document
-        .getElementById("search")
-        .value
-        .toLowerCase();
 
     let roses = document.getElementsByClassName("rose");
 
