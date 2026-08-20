@@ -283,40 +283,22 @@ function sortRoses(){
     </div>
 
 
-    <script>
+  <script>
 
 function showCategory(category){
 
-    // Hide all categories
     document.querySelectorAll(".category").forEach(function(section){
         section.classList.remove("active");
     });
 
-    // Show selected category
     document.getElementById(category).classList.add("active");
 
-    // Scroll to category
     document.getElementById(category).scrollIntoView({
         behavior:"smooth"
     });
 }
 
-
-
-    let roses = document.getElementsByClassName("rose");
-
-    for(let i = 0; i < roses.length; i++){
-
-        let name = roses[i]
-            .innerText
-            .toLowerCase();
-
-        roses[i].style.display =
-            name.includes(input) ? "" : "none";
-    }
-}
-
-    </script>
+  </script>
 
     
   </body>
