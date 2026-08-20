@@ -164,6 +164,7 @@ function searchRose() {
 
 <body>
 
+
 <a href="https://wa.me/919836160317" class="whatsapp" target="_blank">
 💬
 </a>
@@ -209,6 +210,86 @@ function sortRoses(){
 }
 </script>
 
+  <body>
+
+    <div id="home" class="home">
+
+    <h1>🌹 RANJIT NURSERY</h1>
+    <p>Find your perfect rose 🌹</p>
+
+    <input
+        type="text"
+        id="search"
+        placeholder="🔍 Search rose..."
+        onkeyup="searchRose()"
+    >
+
+    <div class="categories">
+
+        <button onclick="showCategory('dutch')">
+            🌹 Dutch Roses
+        </button>
+
+        <button onclick="showCategory('da')">
+            🌹 D.A. Roses
+        </button>
+
+        <button onclick="showCategory('fragrant')">
+            🌹 Fragrant Roses
+        </button>
+
+        <button onclick="showCategory('alltype')">
+            🌹 Other Roses
+        </button>
+
+    </div>
+
+    </div>
+
+
+    <script>
+
+function showCategory(category){
+
+    // Hide all categories
+    document.querySelectorAll(".category").forEach(function(section){
+        section.classList.remove("active");
+    });
+
+    // Show selected category
+    document.getElementById(category).classList.add("active");
+
+    // Scroll to category
+    document.getElementById(category).scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+
+function searchRose(){
+
+    let input = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    let roses = document.getElementsByClassName("rose");
+
+    for(let i = 0; i < roses.length; i++){
+
+        let name = roses[i]
+            .innerText
+            .toLowerCase();
+
+        roses[i].style.display =
+            name.includes(input) ? "" : "none";
+    }
+}
+
+    </script>
+
+    
+  </body>
 
 <h2>Rose List</h2>
 
