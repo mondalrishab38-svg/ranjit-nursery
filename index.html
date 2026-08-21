@@ -271,15 +271,20 @@ function sortRoses(){
       <script>
 function showCategory(category) {
 
-    let categories = document.querySelectorAll(".category");
+    const sections = document.querySelectorAll(".category");
 
-    categories.forEach(function(section) {
-        section.style.display = "none";
+    sections.forEach(section => {
+
+        if (section.dataset.category === category) {
+            section.style.display = "block";
+        } else {
+            section.style.display = "none";
+        }
+
     });
-
-    document.getElementById(category).style.display = "block";
 }
-      </script> 
+      </script>
+      
     </body>
     
 
