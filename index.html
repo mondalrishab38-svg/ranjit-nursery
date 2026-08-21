@@ -54,47 +54,6 @@ input{
 
 <style>
 
-  .home{
-    text-align:center;
-    padding:25px 10px;
-}
-
-.home p{
-    font-size:18px;
-}
-
-.categories{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    max-width:500px;
-    margin:25px auto;
-}
-
-.categories button{
-    padding:16px;
-    border:none;
-    border-radius:15px;
-    background:#7a3e2d;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.2s;
-}
-
-.categories button:active{
-    transform:scale(0.96);
-}
-
-.category{
-    display:none;
-}
-
-.category.active{
-    display:block;
-}
-
 
 
 
@@ -231,66 +190,11 @@ function darkMode(){
     document.body.classList.toggle("dark");
 }
 </script>
-<script>
-function sortRoses(){
-    let container=document.body;
-    let roses=Array.from(document.getElementsByClassName("rose"));
 
-    roses.sort(function(a,b){
-        let x=a.querySelector("h2").innerText.toLowerCase();
-        let y=b.querySelector("h2").innerText.toLowerCase();
-
-        if(document.getElementById("sort").value=="az"){
-            return x.localeCompare(y);
-        }else{
-            return y.localeCompare(x);
-        }
-    });
-
-    roses.forEach(r=>container.appendChild(r));
-}
-</script>
 
   <body>
 
-    <div id="home" class="home">
-
-    
-    <p>FIND YOU ROSE TYPE 🌹</p>
-      <p>|      | </p>
-      <p>|      | </p>
-
-
-    <div id="categoryButtons">
-    <button onclick="showCategory('dutch')">🌹 Dutch</button>
-    <button onclick="showCategory('da')">🌹 D.A.</button>
-    <button onclick="showCategory('fragrant')">🌹 Fragrant</button>
-      <button onclick="showCategory('HT n all type')">🌹 HT N All Type</button>
-    </div>
-
-
-      <script>
-function showCategory(category) {
-
-    const sections = document.querySelectorAll(".category");
-
-    sections.forEach(section => {
-
-        if (section.dataset.category === category) {
-            section.style.display = "block";
-        } else {
-            section.style.display = "none";
-        }
-
-    });
-}
-      </script>
-
-      <script>
-document.querySelectorAll(".category").forEach(section => {
-    section.style.display = "block";
-});
-      </script>
+  
       
     </body>
     
@@ -307,7 +211,7 @@ document.querySelectorAll(".category").forEach(section => {
 <div style="border:1px solid #ccc; padding:15px; margin:15px; width:280px; border-radius:10px;">
   
 <div class="rose">
-<section class="category" data-category="dutch">
+
 <h1>_DUTCH_</h1>
 
 <space>  </space>
