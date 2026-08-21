@@ -263,25 +263,12 @@ function sortRoses(){
 
     <div class="categories">
 
-        <button onclick="showCategory('dutch')">
-            🌹 Dutch Roses
-        </button>
-
-        <button onclick="showCategory('DA')">
-            🌹 D.A. Roses
-        </button>
-
-        <button onclick="showCategory('fragrant')">
-            🌹 Fragrant Roses
-        </button>
-
-        <button onclick="showCategory('HT n all type')">
-            🌹 HT n all type
-        </button>
-
-    </div>
-
-    </div>
+        <div id="categoryButtons">
+    <button onclick="showCategory('dutch')">🌹 Dutch</button>
+    <button onclick="showCategory('DA')">🌹 D.A.</button>
+    <button onclick="showCategory('fragrant')">🌹 Fragrant</button>
+    <button onclick="showCategory('HT n all type')">🌹 HT N All Type</button>
+        </div>
 
 
   <script>
@@ -301,8 +288,21 @@ function showCategory(category){
 
   </script>
 
-    
-  </body>
+
+      <script>
+function showCategory(category) {
+
+    let categories = document.querySelectorAll(".category");
+
+    categories.forEach(function(section) {
+        section.style.display = "none";
+    });
+
+    document.getElementById(category).style.display = "block";
+}
+      </script>
+      
+</body>
 
 <h2>Rose List</h2>
 
