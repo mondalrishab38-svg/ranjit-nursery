@@ -4,6 +4,50 @@
   <tr> </tr>
   <style>
 
+    /* 🌹 ADD ROSE BUTTON */
+
+.rose {
+    position: relative;
+}
+
+.add-rose {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    border: 2px solid #7a3e2d;
+
+    background: #fff8e8;
+    color: #7a3e2d;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 8px rgba(90,58,34,0.20);
+
+    position: absolute;
+    right: 15px;
+    top: 455px;   /* change this depending on image height */
+
+    transition: 0.2s;
+}
+
+.add-rose:active {
+    transform: scale(0.88);
+}
+
+.add-rose.added {
+    background: #6B7A3A;
+    color: white;
+    border-color: #6B7A3A;
+}
+
     /* ===== ADD ROSE + BUTTON ===== */
 
 .rose {
