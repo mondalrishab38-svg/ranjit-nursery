@@ -462,6 +462,138 @@ function darkMode(){
 
   <body>
 
+    <script>
+
+let selectedRoses = [];
+
+
+function addRose(button) {
+
+    let card = button.closest(".rose");
+
+    let name = card.querySelector("h2").innerText.trim();
+
+    let paragraphs = card.querySelectorAll("p");
+
+    let price = "";
+
+    if (paragraphs.length > 0) {
+        price = paragraphs[0].innerText
+            .replace("Price:", "")
+            .trim();
+    }
+
+
+    let existing = selectedRoses.find(
+        rose => rose.name === name
+    );
+
+
+    /* REMOVE ROSE */
+
+    if (existing) {
+
+        selectedRoses = selectedRoses.filter(
+            rose => rose.name !== name
+        );
+
+        button.innerText = "+";
+        button.classList.remove("added");
+
+    }
+
+
+    /* ADD ROSE */
+
+    else {
+
+        selectedRoses.push({
+            name: name,
+            price: price
+        });
+
+        button.innerText = "✓";
+        button.classList.add("added");
+    }
+
+
+    updateWhatsAppButton();
+}
+
+
+
+function updateWhatsAppButton() {
+
+    let button = document.getElementById("sendRoses");
+
+
+    if (selectedRoses.length > 0) {
+
+        button.style.display = "block";
+
+        button.innerText =
+            "💬 WhatsApp (" +
+            selectedRoses.length +
+            ")";
+
+    }
+
+    else {
+
+        button.style.display = "none";
+    }
+}
+
+
+
+function sendRosesToWhatsApp() {
+
+    if (selectedRoses.length === 0) {
+        return;
+    }
+
+
+    let message =
+        "🌹 RANJIT NURSERY\n\n" +
+        "I am interested in these roses:\n\n";
+
+
+    selectedRoses.forEach(function(rose, index) {
+
+        message +=
+            (index + 1) +
+            ". " +
+            rose.name +
+            " - " +
+            rose.price +
+            "\n";
+
+    });
+
+
+    message +=
+        "\nPlease let me know the availability. 🌹";
+
+
+    let phone = "919836160317";
+
+
+    let whatsappURL =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(whatsappURL, "_blank");
+}
+
+    </script>
+
+    <button id="sendRoses" onclick="sendRosesToWhatsApp()">
+    💬 WhatsApp
+    </button>
+
   
       
     </body>
