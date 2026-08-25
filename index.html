@@ -4,30 +4,24 @@
   <tr> </tr>
   <style>
 
-    /* 🌹 Falling Rose Petals */
-
+    //* 🌹 Falling rose petals */
 .petal {
     position: fixed;
-    top: -50px;
-    z-index: -1;
+    top: -30px;
+    z-index: 0;
     pointer-events: none;
-    user-select: none;
-
-    animation: fall linear infinite;
+    font-size: 20px;
+    animation: fall linear forwards;
 }
 
 @keyframes fall {
     0% {
-        transform: translateY(-50px) rotate(0deg);
+        transform: translateY(-30px) rotate(0deg);
         opacity: 0;
     }
 
     10% {
-        opacity: 0.8;
-    }
-
-    90% {
-        opacity: 0.8;
+        opacity: 1;
     }
 
     100% {
@@ -35,7 +29,6 @@
         opacity: 0;
     }
 }
-
     
   /* ===== FOOTER ===== */
 site-footer
@@ -653,25 +646,21 @@ function sendRosesToWhatsApp() {
     
 
     <script>
-const petalSymbols = ["🌹", "🌸", "🌺", "🍂"];
-
 function createPetal() {
     const petal = document.createElement("div");
 
     petal.className = "petal";
-    petal.innerText =
-        petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
+    petal.innerHTML = "🍂";
 
     petal.style.left = Math.random() * 100 + "vw";
-    petal.style.fontSize = (14 + Math.random() * 14) + "px";
-    petal.style.animationDuration = (6 + Math.random() * 7) + "s";
-    petal.style.animationDelay = Math.random() * 3 + "s";
+    petal.style.fontSize = (12 + Math.random() * 15) + "px";
+    petal.style.animationDuration = (5 + Math.random() * 5) + "s";
 
     document.body.appendChild(petal);
 
     setTimeout(() => {
         petal.remove();
-    }, 15000);
+    }, 10000);
 }
 
 setInterval(createPetal, 700);
