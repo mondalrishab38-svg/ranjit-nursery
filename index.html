@@ -559,6 +559,10 @@ function searchRose() {
 </script>
 <input type="text" id="search" placeholder="Search rose..." onkeyup="searchRose()">
 <button onclick="darkMode()">🌙 Dark Mode</button>
+
+  <button onclick="openCatalogueMode()" class="catalogue-mode-btn">
+  📖 Catalogue Mode
+  </button>
 <!DOCTYPE html>
 
 
@@ -786,6 +790,113 @@ function createPetal() {
 }
 
 setInterval(createPetal, 700);
+
+
+
+
+   /* ===== CATALOGUE MODE ===== */
+
+let catalogueRoses = [];
+let catalogueIndex = 0;
+
+
+/* OPEN */
+
+function openCatalogueMode() {
+
+  catalogueRoses =
+    document.querySelectorAll('.rose img');
+
+  if (catalogueRoses.length === 0) {
+
+    alert("No roses found!");
+
+    return;
+  }
+
+  catalogueIndex = 0;
+
+  showCatalogueRose();
+
+  document
+    .getElementById("catalogueMode")
+    .classList.add("active");
+
+  document.body.style.overflow = "hidden";
+}
+
+
+/* SHOW ROSE */
+
+function showCatalogueRose() {
+
+  const image =
+    catalogueRoses[catalogueIndex];
+
+  document.getElementById(
+    "catalogueImage"
+  ).src = image.src;
+
+  document.getElementById(
+    "catalogueName"
+  ).textContent =
+    image.alt || "Rose";
+
+  document.getElementById(
+    "catalogueCounter"
+  ).textContent =
+    (catalogueIndex + 1) +
+    " / " +
+    catalogueRoses.length;
+}
+
+
+/* NEXT */
+
+function nextCatalogueRose() {
+
+  catalogueIndex++;
+
+  if (
+    catalogueIndex >=
+    catalogueRoses.length
+  ) {
+
+    catalogueIndex = 0;
+
+  }
+
+  showCatalogueRose();
+}
+
+
+/* PREVIOUS */
+
+function previousCatalogueRose() {
+
+  catalogueIndex--;
+
+  if (catalogueIndex < 0) {
+
+    catalogueIndex =
+      catalogueRoses.length - 1;
+
+  }
+
+  showCatalogueRose();
+}
+
+
+/* CLOSE */
+
+function closeCatalogueMode() {
+
+  document
+    .getElementById("catalogueMode")
+    .classList.remove("active");
+
+  document.body.style.overflow = "";
+}
  </script>
 
     <footer class="site-footer">
@@ -810,6 +921,54 @@ setInterval(createPetal, 700);
   </p>
 
     </footer>
+
+
+
+
+    <!-- CATALOGUE MODE -->
+
+<div id="catalogueMode">
+
+  <button
+    class="catalogue-close"
+    onclick="closeCatalogueMode()">
+    ×
+  </button>
+
+  <button
+    id="cataloguePrev"
+    class="catalogue-arrow"
+    onclick="previousCatalogueRose()">
+    ‹
+  </button>
+
+  <div class="catalogue-photo">
+
+    <img
+      id="catalogueImage"
+      src=""
+      alt="Rose">
+
+  </div>
+
+  <div
+    id="catalogueName"
+    class="catalogue-name">
+  </div>
+
+  <div
+    id="catalogueCounter"
+    class="catalogue-counter">
+  </div>
+
+  <button
+    id="catalogueNext"
+    class="catalogue-arrow"
+    onclick="nextCatalogueRose()">
+    ›
+  </button>
+
+</div>
     </body>
     
 
